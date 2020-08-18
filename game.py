@@ -2,13 +2,12 @@ from random import choice
 from card import Card
 
 class Deck:
-    def __init__(self, deckType=0):
+    def __init__(self, cardNumber=5):
         self.cards = []
-        if deckType == 1:
-            for i in range(5):
-                card = Card()
-                self.cards.append(card)
-        self.deckType = deckType
+        for i in range(cardNumber):
+            cardAdd = Card()
+            cardAdd.chooseTypeRandomly()
+            self.cards.append(cardAdd)
 
     def __add__(self, other):
         if type(other) == Card:
@@ -18,4 +17,5 @@ class Deck:
 
 yourDeck = Deck()
 
-boosterPack = Deck(deckType=1)
+for i in yourDeck.cards:
+    print(i.cardType)
